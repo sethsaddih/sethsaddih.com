@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { ReactNode } from "react";
+import Link from "next/link";
 import {
   ArrowRight,
   Award,
@@ -25,6 +27,7 @@ import {
   Twitter,
   X,
 } from "lucide-react";
+import { socialLinks } from "./social-links";
 
 export const skills = [
   { title: "Biochemistry", status: "Academic focus", description: "Lab techniques, scientific analysis, research thinking and evidence-based problem solving.", icon: FlaskConical, tone: "cyan", tags: ["B.Sc. Biochemistry", "Lab work", "Scientific thinking"] },
@@ -40,12 +43,7 @@ export const work = [
   { title: "Personal Portfolio Website", category: "Web", eyebrow: "03 · Development", icon: Code2, stack: ["Next.js", "Tailwind CSS", "React"], text: "A responsive portfolio built to bring science, analytics, design and development into one digital identity.", visual: "portfolio" },
 ];
 
-export const socialLinks = [
-  { label: "GitHub", href: "https://github.com/sethsaddih", icon: Github },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/seth-saddih-862444371", icon: Linkedin },
-  { label: "Instagram", href: "https://www.instagram.com/seth_saddih", icon: Instagram },
-  { label: "X", href: "https://x.com/sethsaddih", icon: Twitter },
-];
+export { socialLinks };
 
 const nav = [
   ["Home", "/"],
@@ -60,11 +58,16 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
+<<<<<<< HEAD
       <div className="nav-shell mx-auto flex max-w-360 items-center justify-between rounded-[20px] px-3 py-2.5 sm:px-4">
         <a href="/" className="group flex items-center gap-3" aria-label="Seth Saddih home">
+=======
+      <div className="nav-shell mx-auto flex max-w-[1440px] items-center justify-between rounded-[20px] px-3 py-2.5 sm:px-4">
+        <Link href="/" className="group flex items-center gap-3" aria-label="Seth Saddih home">
+>>>>>>> d6624fcd9ca2a66ffe070f9621bc2c38f8019867
           <span className="brand-mark grid size-10 place-items-center rounded-xl text-sm font-semibold">SS</span>
           <span className="hidden text-sm font-semibold tracking-tight sm:block">Seth Saddih</span>
-        </a>
+        </Link>
         <div className="hidden items-center gap-7 text-[13px] text-white/65 md:flex">
           {nav.map(([label, href]) => <a key={label} href={href} className={`nav-link ${active === label ? "active" : ""}`}>{label}</a>)}
         </div>
@@ -110,7 +113,7 @@ export function Footer() {
   return <footer className="footer-shell mt-auto px-4 py-8 sm:px-6"><div className="mx-auto flex max-w-360 flex-col gap-4 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between"><strong className="text-sm text-white/70">Seth Saddih</strong><div>Science · Data · Design · Code · Impact</div><div>© 2026 Seth Saddih. All rights reserved.</div></div></footer>;
 }
 
-function PageFrame({ children, active }: { children: React.ReactNode; active: string }) {
+function PageFrame({ children, active }: { children: ReactNode; active: string }) {
   return <main id="top" className="page-frame relative flex min-h-screen flex-col overflow-x-clip"><div className="page-glow pointer-events-none absolute inset-0 -z-10" aria-hidden="true"><span className="ambient ambient-one" /><span className="ambient ambient-two" /><span className="ambient ambient-three" /></div><SiteHeader active={active} />{children}<Footer /></main>;
 }
 
@@ -145,4 +148,3 @@ export function ExperiencePage() {
 export function ContactPage() {
   return <PageFrame active="Contact"><section className="mx-auto max-w-360 px-4 pb-20 pt-32 sm:px-6 lg:pb-24 lg:pt-40"><div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr]"><div><div className="section-title-row"><span /> <p>Get in Touch</p></div><h1 className="section-heading mt-4">Let&apos;s start a conversation.</h1><p className="page-lead mt-6">For collaborations, project conversations, internships or a simple hello, reach out through any of the channels below.</p><a className="primary-cta inline-flex mt-8" href="mailto:saddihseth@gmail.com">Email me <ArrowRight size={17}/></a></div><div className="contact-panel"><div className="contact-list"><a href="mailto:saddihseth@gmail.com"><Mail size={16}/> saddihseth@gmail.com</a>{socialLinks.map(({ label, href, icon: Icon }) => <a key={label} href={href} target="_blank" rel="noreferrer"><Icon size={16}/> {label === "GitHub" ? "github.com/sethsaddih" : label === "LinkedIn" ? "linkedin.com/in/seth-saddih" : label === "X" ? "x.com/sethsaddih" : "instagram.com/seth_saddih"}</a>)}</div><div className="contact-note mt-10"><MapPin size={18}/><div><span>Based in</span><strong>Nigeria</strong></div></div></div></div></section></PageFrame>;
 }
-
