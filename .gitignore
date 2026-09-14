@@ -1,0 +1,16 @@
+# Dependencies
+node_modules
+.pnpm-debug.log*
+
+# Next.js build output
+.next
+out
+
+# Production build artifacts
+build
+
+# Environment variables
+.env*.local
+
+# OS files
+.DS_Store
