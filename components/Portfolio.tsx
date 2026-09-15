@@ -143,3 +143,6 @@ export function ExperiencePage() {
 }
 
 export function ContactPage() {
+  return <PageFrame active="Contact"><section className="mx-auto max-w-[1440px] px-4 pb-20 pt-32 sm:px-6 lg:pb-24 lg:pt-40"><div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr]"><div><div className="section-title-row"><span /> <p>Get in Touch</p></div><h1 className="section-heading mt-4">Let&apos;s start a conversation.</h1><p className="page-lead mt-6">For collaborations, project conversations, internships or a simple hello, reach out through any of the channels below.</p><a className="primary-cta inline-flex mt-8" href="mailto:saddihseth@gmail.com">Email me <ArrowRight size={17}/></a></div><div className="contact-panel"><div className="contact-list"><a href="mailto:saddihseth@gmail.com"><Mail size={16}/> saddihseth@gmail.com</a>{socialLinks.map(({ label, href, icon: Icon }) => <a key={label} href={href} target="_blank" rel="noreferrer"><Icon size={16}/> {label === "GitHub" ? "github.com/sethsaddih" : label === "LinkedIn" ? "linkedin.com/in/seth-saddih" : label === "X" ? "x.com/sethsaddih" : "instagram.com/seth_saddih"}</a>)}</div><div className="contact-note mt-10"><MapPin size={18}/><div><span>Based in</span><strong>Nigeria</strong></div></div></div></div></section></PageFrame>;
+}
+
