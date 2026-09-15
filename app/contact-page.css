@@ -34,8 +34,7 @@
 @media (max-width: 900px) { .contact-intro-panel, .contact-panel { min-height: 0; } .social-list a { min-height: 74px; } }
 @media (max-width: 640px) { .contact-intro-panel, .contact-panel { border-radius: 22px; } .social-list a { min-height: 68px; padding: .9rem 1rem; } .social-list a svg:first-child { width: 27px; height: 27px; } .social-list a span { font-size: .96rem; } }
 
-/* Contact page follows the same natural sizing model as the About page.
-   No fixed-height wrapper, no forced viewport height, and no hidden overflow. */
+/* Contact page follows the same natural sizing model as the About page. */
 main:has(.contact-intro-panel) > section {
   padding-top: 7rem !important;
   padding-bottom: 2rem !important;
@@ -53,9 +52,14 @@ main:has(.contact-intro-panel) .contact-panel {
   padding: 2rem 2.25rem;
 }
 
-main:has(.contact-intro-panel) .contact-intro-panel,
-main:has(.contact-intro-panel) .contact-panel {
+main:has(.contact-intro-panel) .contact-intro-panel {
   justify-content: flex-start;
+}
+
+/* The links panel should hug its contents instead of stretching to fill
+   the entire two-column grid. */
+main:has(.contact-intro-panel) .contact-panel {
+  align-self: start;
 }
 
 main:has(.contact-intro-panel) .social-list {
@@ -66,10 +70,6 @@ main:has(.contact-intro-panel) .social-list {
 main:has(.contact-intro-panel) .social-list a {
   min-height: 3.55rem;
   padding: .6rem .9rem;
-}
-
-main:has(.contact-intro-panel) .contact-note-large {
-  margin-top: 2rem;
 }
 
 main:has(.contact-intro-panel) .contact-panel-footer {
