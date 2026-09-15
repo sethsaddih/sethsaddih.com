@@ -1,0 +1,117 @@
+.filter-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 380px);
+  min-height: 48px;
+  padding: 4px;
+  gap: 0;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 999px;
+  background: rgba(245,247,250,.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    inset 0 -1px 0 rgba(255,255,255,.035),
+    0 18px 42px rgba(0,0,0,.24);
+  -webkit-backdrop-filter: blur(22px) saturate(115%);
+  backdrop-filter: blur(22px) saturate(115%);
+}
+
+.filter-row::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,.055), transparent 42%, rgba(255,255,255,.015));
+  z-index: 0;
+}
+
+.filter-row::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(25% - 2px);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.13);
+  background:
+    linear-gradient(180deg, rgba(111,230,255,.28), rgba(82,151,255,.15)),
+    rgba(75,184,235,.11);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    inset 0 0 18px rgba(93,222,255,.08),
+    0 0 22px rgba(78,194,255,.08);
+  pointer-events: none;
+  transition: left .48s cubic-bezier(.22,1,.36,1);
+}
+
+.filter-row:has(.filter:nth-child(2).active)::before {
+  left: calc(25% + 2px);
+}
+
+.filter-row:has(.filter:nth-child(3).active)::before {
+  left: 50%;
+}
+
+.filter-row:has(.filter:nth-child(4).active)::before {
+  left: calc(75% - 2px);
+}
+
+.filter {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255,255,255,.53);
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 550;
+  letter-spacing: .01em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .28s ease, transform .2s ease;
+}
+
+.filter:hover {
+  color: rgba(255,255,255,.9);
+}
+
+.filter:active {
+  transform: scale(.96);
+}
+
+.filter.active {
+  color: #f7fdff;
+}
+
+.filter:focus-visible {
+  outline: 2px solid rgba(142,231,242,.72);
+  outline-offset: -2px;
+}
+
+@media (max-width: 640px) {
+  .filter-row {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .filter {
+    font-size: 11px;
+    padding-inline: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filter-row::before,
+  .filter {
+    transition: none;
+  }
+}
