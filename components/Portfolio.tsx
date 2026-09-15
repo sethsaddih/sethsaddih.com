@@ -13,18 +13,13 @@ import {
   Database,
   ExternalLink,
   FlaskConical,
-  Github,
   GraduationCap,
-  Instagram,
-  Linkedin,
-  Mail,
   MapPin,
   Menu,
   PenTool,
   Sparkles,
   Stethoscope,
   Table2,
-  Twitter,
   X,
 } from "lucide-react";
 import { socialLinks } from "./social-links";
@@ -56,6 +51,7 @@ const nav = [
 
 export function SiteHeader({ active = "Home" }: { active?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <nav className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
       <div className="nav-shell mx-auto flex max-w-360 items-center justify-between rounded-[20px] px-3 py-2.5 sm:px-4">
@@ -63,10 +59,24 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
           <span className="brand-mark grid size-10 place-items-center rounded-xl text-sm font-semibold">SS</span>
           <span className="hidden text-sm font-semibold tracking-tight sm:block">Seth Saddih</span>
         </Link>
+
         <div className="hidden items-center gap-7 text-[13px] text-white/65 md:flex">
-          {nav.map(([label, href]) => <a key={label} href={href} className={`nav-link ${active === label ? "active" : ""}`}>{label}</a>)}
+          {nav.map(([label, href]) => (
+            <a
+              key={label}
+              href={href}
+              className={`nav-link ${active === label ? "active" : ""}`}
+              aria-current={active === label ? "page" : undefined}
+            >
+              {label}
+            </a>
+          ))}
         </div>
-        <div className="hidden items-center gap-3 md:flex"><a href="/contact" className="connect-pill">Let&apos;s connect</a></div>
+
+        <div className="hidden items-center gap-3 md:flex">
+          <Link href="/contact" className="connect-pill">Let&apos;s connect</Link>
+        </div>
+
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
@@ -81,6 +91,7 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
           </span>
         </button>
       </div>
+
       <div
         id="mobile-navigation"
         className={`mobile-nav-wrap mx-auto mt-2 max-w-360 md:hidden ${menuOpen ? "is-open" : "is-closed"}`}
@@ -93,6 +104,7 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
               key={label}
               href={href}
               tabIndex={menuOpen ? 0 : -1}
+              aria-current={active === label ? "page" : undefined}
               className={active === label ? "bg-white/5 text-white" : ""}
             >
               {label}
@@ -105,15 +117,52 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
 }
 
 export function Footer() {
-  return <footer className="footer-shell mt-auto px-4 py-8 sm:px-6"><div className="mx-auto flex max-w-360 flex-col gap-4 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between"><strong className="text-sm text-white/70">Seth Saddih</strong><div>Science · Data · Design · Code · Impact</div><div>© 2026 Seth Saddih. All rights reserved.</div></div></footer>;
+  return (
+    <footer className="footer-shell mt-auto px-4 py-8 sm:px-6">
+      <div className="mx-auto flex max-w-360 flex-col gap-4 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
+        <strong className="text-sm text-white/70">Seth Saddih</strong>
+        <div>Science · Data · Design · Code · Impact</div>
+        <div>© 2026 Seth Saddih. All rights reserved.</div>
+      </div>
+    </footer>
+  );
 }
 
 function PageFrame({ children, active }: { children: ReactNode; active: string }) {
-  return <main id="top" className="page-frame relative flex min-h-screen flex-col overflow-x-clip"><div className="page-glow pointer-events-none absolute inset-0 -z-10" aria-hidden="true"><span className="ambient ambient-one" /><span className="ambient ambient-two" /><span className="ambient ambient-three" /></div><SiteHeader active={active} />{children}<Footer /></main>;
+  return (
+    <main id="top" className="page-frame relative flex min-h-screen flex-col overflow-x-clip">
+      <div className="page-glow pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <span className="ambient ambient-one" />
+        <span className="ambient ambient-two" />
+        <span className="ambient ambient-three" />
+      </div>
+      <SiteHeader active={active} />
+      {children}
+      <Footer />
+    </main>
+  );
 }
 
 export function HomePage() {
-  return <PageFrame active="Home"><section className="hero-section mx-auto grid max-w-360 gap-10 px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-8 lg:pt-40 lg:pb-28"><div className="max-w-165"><div className="hero-kicker"><span className="kicker-dot" />Biochemistry undergraduate · building across disciplines</div><p className="hero-intro">Hello, I&apos;m</p><h1 className="hero-title">Seth <span>Saddih</span></h1><p className="hero-subtitle">Biochemistry Undergraduate &amp; Pre-Med Student · Data Analyst · Web Developer · Graphic Designer.</p><p className="hero-copy">I&apos;m building a broad technical toolkit around a long-term goal in medicine — combining science, data, design and technology to keep learning and create useful things.</p><div className="mt-8 flex flex-wrap gap-3"><a href="/projects" className="primary-cta group">See my work <ArrowRight className="transition-transform group-hover:translate-x-1" size={17} /></a><a href="/contact" className="secondary-cta">Let&apos;s connect</a></div><div className="hero-meta mt-9 flex flex-wrap gap-2.5"><span>Babcock University</span><span>300 Level</span><span>Nigeria</span></div></div><HeroPhoto /></section></PageFrame>;
+  return (
+    <PageFrame active="Home">
+      <section className="hero-section mx-auto grid max-w-360 gap-10 px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-8 lg:pt-40 lg:pb-28">
+        <div className="max-w-165">
+          <div className="hero-kicker"><span className="kicker-dot" />Biochemistry undergraduate · building across disciplines</div>
+          <p className="hero-intro">Hello, I&apos;m</p>
+          <h1 className="hero-title">Seth <span>Saddih</span></h1>
+          <p className="hero-subtitle">Biochemistry Undergraduate &amp; Pre-Med Student · Data Analyst · Web Developer · Graphic Designer.</p>
+          <p className="hero-copy">I&apos;m building a broad technical toolkit around a long-term goal in medicine — combining science, data, design and technology to keep learning and create useful things.</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/projects" className="primary-cta group">See my work <ArrowRight className="transition-transform group-hover:translate-x-1" size={17} /></Link>
+            <Link href="/contact" className="secondary-cta">Let&apos;s connect</Link>
+          </div>
+          <div className="hero-meta mt-9 flex flex-wrap gap-2.5"><span>Babcock University</span><span>300 Level</span><span>Nigeria</span></div>
+        </div>
+        <HeroPhoto />
+      </section>
+    </PageFrame>
+  );
 }
 
 export function HeroPhoto() {
@@ -133,13 +182,91 @@ function ProjectVisual({ item }: { item: typeof work[number] }) { const Icon = i
 export function ProjectsPage() {
   const [filter, setFilter] = useState("All");
   const visibleWork = useMemo(() => work.filter((item) => filter === "All" || item.category === filter), [filter]);
-  return <PageFrame active="Projects"><section className="mx-auto max-w-360 px-4 pb-20 pt-32 sm:px-6 lg:pb-24 lg:pt-40"><div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"><div><div className="section-title-row"><span /> <p>Projects</p></div><h1 className="section-heading mt-4">Practice, projects &amp; progress.</h1><p className="page-lead mt-6 max-w-2xl">Selected work and concepts across analytics, visual design and web development.</p></div><div className="filter-row">{["All", "Web", "Data", "Design"].map((item) => <button key={item} className={filter === item ? "filter active" : "filter"} onClick={() => setFilter(item)}>{item}</button>)}</div></div><div className="projects-grid mt-10">{visibleWork.map((item) => <article key={item.title} className="project-card group"><ProjectVisual item={item} /><div className="project-body"><div className="flex items-start justify-between gap-4"><h2>{item.title}</h2><ExternalLink size={16} className="text-white/30 transition group-hover:text-cyan-200" /></div><p>{item.text}</p><div className="project-tags">{item.stack.map((tag) => <span key={tag}>{tag}</span>)}</div><a href="/contact" className="project-link">View project <ArrowRight size={15} /></a></div></article>)}</div></section></PageFrame>;
+
+  return (
+    <PageFrame active="Projects">
+      <section className="mx-auto max-w-360 px-4 pb-20 pt-32 sm:px-6 lg:pb-24 lg:pt-40">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <div className="section-title-row"><span /> <p>Projects</p></div>
+            <h1 className="section-heading mt-4">Practice, projects &amp; progress.</h1>
+            <p className="page-lead mt-6 max-w-2xl">Selected work and concepts across analytics, visual design and web development.</p>
+          </div>
+          <div className="filter-row" role="group" aria-label="Filter projects">
+            {["All", "Web", "Data", "Design"].map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={filter === item ? "filter active" : "filter"}
+                onClick={() => setFilter(item)}
+                aria-pressed={filter === item}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="projects-grid mt-10" aria-live="polite">
+          {visibleWork.map((item) => (
+            <article key={item.title} className="project-card group">
+              <ProjectVisual item={item} />
+              <div className="project-body">
+                <div className="flex items-start justify-between gap-4">
+                  <h2>{item.title}</h2>
+                  <span aria-hidden="true"><ExternalLink size={16} className="text-white/30 transition group-hover:text-cyan-200" /></span>
+                </div>
+                <p>{item.text}</p>
+                <div className="project-tags">{item.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                <span className="project-link" aria-label={`${item.title} project details coming soon`}>Project details coming soon <ArrowRight size={15} /></span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </PageFrame>
+  );
 }
 
 export function ExperiencePage() {
-  return <PageFrame active="Experience"><section className="mx-auto max-w-360 px-4 pb-20 pt-32 sm:px-6 lg:pb-24 lg:pt-40"><div className="section-title-row"><span /> <p>Experience &amp; Achievements</p></div><h1 className="section-heading mt-4">Learning through doing.</h1><div className="mt-10 grid gap-12 lg:grid-cols-2"><div><div className="timeline"><div className="timeline-item"><div className="timeline-icon"><GraduationCap size={17}/></div><div><strong>Babcock University</strong><span>Student</span><small>2024 — Present</small></div></div><div className="timeline-item"><div className="timeline-icon"><BriefcaseBusiness size={17}/></div><div><strong>SIWES</strong><span>Laboratory / Clinical Support (Upcoming)</span><small>2026</small></div></div><div className="timeline-item"><div className="timeline-icon"><Database size={17}/></div><div><strong>Academic Projects</strong><span>Research, data analysis, design &amp; development</span><small>2025 — Present</small></div></div></div></div><div><div className="section-title-row"><span /> <p>Certifications &amp; Courses</p></div><div className="course-list mt-7">{["Data Analytics (in progress)", "Python for Data Analysis (in progress)", "Graphic Design (in progress)", "Web Development (in progress)"].map((course) => <div key={course} className="course-item"><div className="course-icon"><Award size={17}/></div><div><strong>{course}</strong><span>Learning track</span></div></div>)}</div></div></div><div className="education-card mt-12"><div className="university-mark">BU</div><div><h2>Babcock University</h2><p>B.Sc. Biochemistry</p><div className="education-meta-row"><span><Table2 size={15} /> 300 Level</span><span><CalendarDays size={15} /> Expected Graduation: 2028</span></div></div></div></section></PageFrame>;
-}
+  const learningTracks = ["Data Analytics", "Python for Data Analysis", "Graphic Design", "Web Development"];
 
-export function ContactPage() {
-  return <PageFrame active="Contact"><section className="mx-auto max-w-360 px-4 pb-20 pt-32 sm:px-6 lg:pb-24 lg:pt-40"><div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr]"><div><div className="section-title-row"><span /> <p>Get in Touch</p></div><h1 className="section-heading mt-4">Let&apos;s start a conversation.</h1><p className="page-lead mt-6">For collaborations, project conversations, internships or a simple hello, reach out through any of the channels below.</p><a className="primary-cta inline-flex mt-8" href="mailto:saddihseth@gmail.com">Email me <ArrowRight size={17}/></a></div><div className="contact-panel"><div className="contact-list"><a href="mailto:saddihseth@gmail.com"><Mail size={16}/> saddihseth@gmail.com</a>{socialLinks.map(({ label, href, icon: Icon }) => <a key={label} href={href} target="_blank" rel="noreferrer"><Icon size={16}/> {label === "GitHub" ? "github.com/sethsaddih" : label === "LinkedIn" ? "linkedin.com/in/seth-saddih" : label === "X" ? "x.com/sethsaddih" : "instagram.com/seth_saddih"}</a>)}</div><div className="contact-note mt-10"><MapPin size={18}/><div><span>Based in</span><strong>Nigeria</strong></div></div></div></div></section></PageFrame>;
+  return (
+    <PageFrame active="Experience">
+      <section className="mx-auto max-w-360 px-4 pb-20 pt-32 sm:px-6 lg:pb-24 lg:pt-40">
+        <div className="section-title-row"><span /> <p>Experience &amp; Achievements</p></div>
+        <h1 className="section-heading mt-4">Learning through doing.</h1>
+        <div className="mt-10 grid gap-12 lg:grid-cols-2">
+          <div>
+            <div className="timeline">
+              <div className="timeline-item"><div className="timeline-icon"><GraduationCap size={17}/></div><div><strong>Babcock University</strong><span>Student</span><small>2024 — Present</small></div></div>
+              <div className="timeline-item"><div className="timeline-icon"><BriefcaseBusiness size={17}/></div><div><strong>SIWES</strong><span>Laboratory / Clinical Support (Upcoming)</span><small>2026</small></div></div>
+              <div className="timeline-item"><div className="timeline-icon"><Database size={17}/></div><div><strong>Academic Projects</strong><span>Research, data analysis, design &amp; development</span><small>2025 — Present</small></div></div>
+            </div>
+          </div>
+          <div>
+            <div className="section-title-row"><span /> <p>Learning Tracks</p></div>
+            <p className="page-lead mt-4 max-w-xl">Current areas of study and skill development alongside my academic work.</p>
+            <div className="course-list mt-7">
+              {learningTracks.map((track) => (
+                <div key={track} className="course-item">
+                  <div className="course-icon"><Award size={17}/></div>
+                  <div><strong>{track}</strong><span>Currently learning</span></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="education-card mt-12">
+          <div className="university-mark">BU</div>
+          <div>
+            <h2>Babcock University</h2>
+            <p>B.Sc. Biochemistry</p>
+            <div className="education-meta-row"><span><Table2 size={15} /> 300 Level</span><span><CalendarDays size={15} /> Expected Graduation: 2028</span></div>
+          </div>
+        </div>
+      </section>
+    </PageFrame>
+  );
 }
