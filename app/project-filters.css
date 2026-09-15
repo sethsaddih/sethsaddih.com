@@ -6,11 +6,13 @@
   min-height: 48px;
   padding: 4px;
   gap: 0;
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
   border: 1px solid rgba(255,255,255,.13);
   border-radius: 999px;
-  background: rgba(245,247,250,.06);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.012) 45%, rgba(255,255,255,.02)),
+    rgba(245,247,250,.06);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.12),
     inset 0 -1px 0 rgba(255,255,255,.035),
@@ -19,16 +21,7 @@
   backdrop-filter: blur(22px) saturate(115%);
 }
 
-.filter-row::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,.055), transparent 42%, rgba(255,255,255,.015));
-  z-index: 0;
-}
-
+/* One shared active surface. It slides between the four filter positions. */
 .filter-row::before {
   content: "";
   position: absolute;
@@ -62,13 +55,46 @@
   left: calc(75% - 2px);
 }
 
+/* Small floating indicator above the selected segment. */
+.filter-row::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  top: -5px;
+  left: calc(12.5% - 8px);
+  width: 16px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(142,231,242,.98), rgba(181,200,255,.82));
+  box-shadow:
+    0 0 8px rgba(88,232,255,.42),
+    0 0 16px rgba(88,232,255,.18);
+  pointer-events: none;
+  transition: left .48s cubic-bezier(.22,1,.36,1);
+}
+
+.filter-row:has(.filter:nth-child(2).active)::after {
+  left: calc(37.5% - 8px);
+}
+
+.filter-row:has(.filter:nth-child(3).active)::after {
+  left: calc(62.5% - 8px);
+}
+
+.filter-row:has(.filter:nth-child(4).active)::after {
+  left: calc(87.5% - 8px);
+}
+
 .filter {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   min-width: 0;
-  border: 0;
+  border: 0 !important;
   border-radius: 999px;
-  background: transparent;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   color: rgba(255,255,255,.53);
   padding: 10px 12px;
   font: inherit;
@@ -111,6 +137,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .filter-row::before,
+  .filter-row::after,
   .filter {
     transition: none;
   }
