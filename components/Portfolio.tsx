@@ -107,7 +107,7 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
 }
 
 export function Footer() {
-  return <footer className="footer-shell px-4 py-8 sm:px-6"><div className="mx-auto flex max-w-[1440px] flex-col gap-4 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between"><strong className="text-sm text-white/70">Seth Saddih</strong><div>Science · Data · Design · Code · Impact</div><div>© 2026 Seth Saddih. All rights reserved.</div></div></footer>;
+  return <footer className="footer-shell mt-auto px-4 py-8 sm:px-6"><div className="mx-auto flex max-w-[1440px] flex-col gap-4 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between"><strong className="text-sm text-white/70">Seth Saddih</strong><div>Science · Data · Design · Code · Impact</div><div>© 2026 Seth Saddih. All rights reserved.</div></div></footer>;
 }
 
 function PageFrame({ children, active }: { children: React.ReactNode; active: string }) {
