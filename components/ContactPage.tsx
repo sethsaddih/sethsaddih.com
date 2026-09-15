@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
-import { Footer, SiteHeader, socialLinks } from "./Portfolio";
+import { Footer, SiteHeader } from "./Portfolio";
+import { socialLinks } from "./social-links";
 
 function ContactFrame({ children }: { children: ReactNode }) {
   return (
