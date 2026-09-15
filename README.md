@@ -7,8 +7,8 @@ Next.js + React + Tailwind CSS portfolio for Seth Saddih.
 - `/` — Home / hero
 - `/about` — About Me
 - `/skills` — Skills & Expertise
-- `/projects` — Projects (with filters)
-- `/experience` — Experience, achievements, certifications and education
+- `/projects` — Projects with filters and project placeholders
+- `/experience` — Experience, learning tracks and education
 - `/contact` — Contact and social links
 
 The fixed frosted-glass navigation links directly to each page, and the mobile menu uses the same route structure.
@@ -16,8 +16,15 @@ The fixed frosted-glass navigation links directly to each page, and the mobile m
 ## Run locally
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Then open `http://localhost:3000`.
+
+## Checks
+
+```bash
+pnpm lint
+pnpm build
+```
