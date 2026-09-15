@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./project-filters.css";
 
 export const viewport = {
   width: "device-width",
