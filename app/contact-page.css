@@ -34,7 +34,7 @@
 @media (max-width: 900px) { .contact-intro-panel, .contact-panel { min-height: 0; } .social-list a { min-height: 74px; } }
 @media (max-width: 640px) { .contact-intro-panel, .contact-panel { border-radius: 22px; } .social-list a { min-height: 68px; padding: .9rem 1rem; } .social-list a svg:first-child { width: 27px; height: 27px; } .social-list a span { font-size: .96rem; } }
 
-/* Contact page: use the same natural sizing model as the About page. */
+/* Contact page: use natural content sizing, like the About page. */
 main:has(.contact-intro-panel) > section {
   padding-top: 7rem !important;
   padding-bottom: 2rem !important;
@@ -45,17 +45,21 @@ main:has(.contact-intro-panel) > section > div {
   min-height: 0;
 }
 
-main:has(.contact-intro-panel) .contact-intro-panel,
-main:has(.contact-intro-panel) .contact-panel {
+main:has(.contact-intro-panel) .contact-intro-panel {
   min-height: 0 !important;
   height: auto !important;
   padding: 2rem 2.25rem;
 }
 
-/* Do not stretch the right-hand glass panel to match the left panel. */
+/* The social glass should wrap only the links + footer content on desktop. */
 main:has(.contact-intro-panel) .contact-panel {
   align-self: start;
-  justify-self: stretch;
+  justify-self: start;
+  width: fit-content;
+  min-width: min(100%, 34rem);
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 1.5rem 1.75rem;
 }
 
 main:has(.contact-intro-panel) .social-list {
@@ -73,13 +77,6 @@ main:has(.contact-intro-panel) .contact-panel-footer {
   padding-top: 1rem;
 }
 
-@media (min-width: 901px) {
-  main:has(.contact-intro-panel) .contact-panel {
-    height: fit-content !important;
-    max-height: max-content;
-  }
-}
-
 @media (max-width: 767px) {
   main:has(.contact-intro-panel) > section {
     padding-top: 5.25rem !important;
@@ -88,11 +85,9 @@ main:has(.contact-intro-panel) .contact-panel-footer {
 
   main:has(.contact-intro-panel) .contact-intro-panel,
   main:has(.contact-intro-panel) .contact-panel {
+    width: 100%;
+    min-width: 0;
     padding: 1rem;
-  }
-
-  main:has(.contact-intro-panel) .contact-panel {
-    align-self: start;
   }
 
   main:has(.contact-intro-panel) .section-heading {
