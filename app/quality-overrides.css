@@ -1,0 +1,63 @@
+/* Cross-site quality pass: semantic typography, focus states, touch targets,
+   content-driven page sizing, and small responsive refinements. */
+
+.page-frame > section {
+  flex: 1 0 auto;
+}
+
+.skill-card h2,
+.project-body h2,
+.education-card h2 {
+  margin-top: 28px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.project-body h2 {
+  margin-top: 0;
+}
+
+.education-card h2 {
+  margin-top: 0;
+  font-size: 19px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(142,231,242,.78);
+  outline-offset: 3px;
+}
+
+.primary-cta,
+.secondary-cta,
+.connect-pill,
+.menu-toggle,
+.filter {
+  min-height: 44px;
+}
+
+.hero-title,
+.section-heading {
+  text-wrap: balance;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 720px) {
+  .skill-card h2,
+  .project-body h2 {
+    font-size: 17px;
+  }
+
+  .footer-shell > div {
+    width: 100%;
+  }
+}
