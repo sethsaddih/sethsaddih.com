@@ -58,13 +58,8 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
-<<<<<<< HEAD
       <div className="nav-shell mx-auto flex max-w-360 items-center justify-between rounded-[20px] px-3 py-2.5 sm:px-4">
-        <a href="/" className="group flex items-center gap-3" aria-label="Seth Saddih home">
-=======
-      <div className="nav-shell mx-auto flex max-w-[1440px] items-center justify-between rounded-[20px] px-3 py-2.5 sm:px-4">
         <Link href="/" className="group flex items-center gap-3" aria-label="Seth Saddih home">
->>>>>>> d6624fcd9ca2a66ffe070f9621bc2c38f8019867
           <span className="brand-mark grid size-10 place-items-center rounded-xl text-sm font-semibold">SS</span>
           <span className="hidden text-sm font-semibold tracking-tight sm:block">Seth Saddih</span>
         </Link>
