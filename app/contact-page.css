@@ -1,0 +1,169 @@
+.contact-intro-panel,
+.contact-panel {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.105);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,.052), rgba(255,255,255,.018));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 24px 70px rgba(0,0,0,.22);
+  -webkit-backdrop-filter: blur(24px) saturate(115%);
+  backdrop-filter: blur(24px) saturate(115%);
+}
+
+.contact-intro-panel::before,
+.contact-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(142,231,242,.07), transparent 34%, transparent 68%, rgba(217,183,255,.055));
+}
+
+.contact-intro-panel > *,
+.contact-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-intro-panel {
+  padding: clamp(2rem, 5vw, 4.25rem);
+}
+
+.contact-panel {
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+
+.contact-intro-panel .section-heading,
+.contact-panel .contact-panel-label {
+  max-width: 680px;
+}
+
+.contact-panel-label {
+  margin: 0;
+  color: rgba(255,255,255,.48);
+  font-size: .78rem;
+  font-weight: 650;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.social-list {
+  display: grid;
+  gap: .8rem;
+  margin-top: 1.35rem;
+}
+
+.social-list a {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 18px;
+  background: rgba(255,255,255,.028);
+  color: rgba(255,255,255,.74);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+  transition: transform .28s cubic-bezier(.22,1,.36,1), background .28s ease, border-color .28s ease, color .28s ease;
+}
+
+.social-list a:hover {
+  transform: translateX(5px);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(142,231,242,.18);
+  color: #fff;
+}
+
+.social-list a svg:first-child {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.8;
+  color: var(--cyan);
+}
+
+.social-list a span {
+  flex: 1;
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.social-list a svg:last-child {
+  flex: 0 0 auto;
+  color: rgba(255,255,255,.32);
+}
+
+.contact-note-large {
+  display: inline-flex;
+  align-items: center;
+  gap: .85rem;
+  padding: .95rem 1.15rem;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.025);
+}
+
+.contact-note-large svg {
+  color: var(--cyan);
+}
+
+.contact-note-large div {
+  display: grid;
+  gap: .12rem;
+}
+
+.contact-note-large span,
+.contact-panel-footer span {
+  color: rgba(255,255,255,.36);
+  font-size: .68rem;
+  font-weight: 650;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.contact-note-large strong,
+.contact-panel-footer strong {
+  color: rgba(255,255,255,.82);
+  font-size: .95rem;
+}
+
+.contact-panel-footer {
+  display: grid;
+  gap: .45rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+@media (max-width: 900px) {
+  .contact-intro-panel,
+  .contact-panel {
+    min-height: 0;
+  }
+
+  .social-list a {
+    min-height: 74px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-intro-panel,
+  .contact-panel {
+    border-radius: 22px;
+  }
+
+  .social-list a {
+    min-height: 68px;
+    padding: .9rem 1rem;
+  }
+
+  .social-list a svg:first-child {
+    width: 27px;
+    height: 27px;
+  }
+
+  .social-list a span {
+    font-size: .96rem;
+  }
+}
