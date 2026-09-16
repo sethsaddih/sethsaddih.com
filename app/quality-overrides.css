@@ -62,18 +62,23 @@ img {
   }
 }
 
-/* Mobile header: place the menu button on the left and the SS brand on the right. */
+/* Mobile header: place the menu button on the left and the profile image on the right. */
 @media (max-width: 767px) {
   .nav-shell {
     flex-direction: row-reverse;
   }
 }
 
-/* Match the mobile menu button to the SS brand tile exactly. */
+/* Match the mobile menu button to the profile image tile styling. */
 @media (max-width: 767px) {
   .menu-toggle {
     border: 1px solid rgba(255,255,255,.12);
     background: rgba(255,255,255,.055);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 8px 20px rgba(0,0,0,.18);
   }
+}
+
+/* The footer name is intentionally omitted; keep only the descriptor and copyright. */
+.footer-shell > div > strong {
+  display: none;
 }
