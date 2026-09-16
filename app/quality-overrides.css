@@ -62,10 +62,31 @@ img {
   }
 }
 
-/* Mobile header: place the menu button on the left and the profile image on the right. */
+/* Mobile header: menu on the left, centered name, profile image on the right. */
 @media (max-width: 767px) {
   .nav-shell {
     flex-direction: row-reverse;
+  }
+
+  .mobile-header-title {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    white-space: nowrap;
+    color: rgba(255,255,255,.92);
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -.02em;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-header-title {
+    display: none;
   }
 }
 
@@ -81,21 +102,4 @@ img {
 /* The footer name is intentionally omitted; keep only the descriptor and copyright. */
 .footer-shell > div > strong {
   display: none;
-}
-
-/* Center the full name between the mobile menu button and profile image. */
-@media (max-width: 767px) {
-  nav::after {
-    content: "Seth Saddih";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
-    color: rgba(255,255,255,.88);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -.015em;
-    pointer-events: none;
-  }
 }
