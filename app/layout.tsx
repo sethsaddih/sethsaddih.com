@@ -11,7 +11,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sethsaddih.com"),
+  metadataBase: new URL("https://sethsaddih-com.vercel.app"),
   title: {
     default: "Seth Saddih — Biochemistry, Data, Design & Web",
     template: "%s — Seth Saddih",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Seth Saddih — Biochemistry, Data, Design & Web",
     description:
       "Portfolio of Seth Saddih, a B.Sc. Biochemistry undergraduate and pre-med student exploring data analytics, graphic design, and web development.",
-    url: "https://sethsaddih.com",
+    url: "https://sethsaddih-com.vercel.app",
     siteName: "Seth Saddih",
     type: "website",
     images: [
