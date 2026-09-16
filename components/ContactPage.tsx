@@ -29,12 +29,14 @@ export default function ContactPage() {
             <p className="page-lead mt-6 max-w-xl">
               For collaborations, project conversations, internships or a simple hello, reach out through any of the channels below.
             </p>
-            <a className="primary-cta mt-8 inline-flex" href="mailto:saddihseth@gmail.com">
-              <Mail size={19} /> Email me <ArrowRight size={17} />
-            </a>
-            <div className="contact-note-large mt-10">
-              <MapPin size={22} />
-              <div><span>Based in</span><strong>Nigeria</strong></div>
+            <div className="contact-actions mt-8">
+              <a className="primary-cta contact-action" href="mailto:saddihseth@gmail.com">
+                <Mail size={19} /> Email me <ArrowRight size={17} />
+              </a>
+              <div className="contact-note-large contact-action">
+                <MapPin size={22} />
+                <div><span>Based in</span><strong>Nigeria</strong></div>
+              </div>
             </div>
           </div>
 
