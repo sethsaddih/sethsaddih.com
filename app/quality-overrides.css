@@ -61,3 +61,10 @@ img {
     width: 100%;
   }
 }
+
+/* Mobile header: place the menu button on the left and the SS brand on the right. */
+@media (max-width: 767px) {
+  .nav-shell {
+    flex-direction: row-reverse;
+  }
+}
