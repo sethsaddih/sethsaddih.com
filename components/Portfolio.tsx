@@ -55,8 +55,8 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
   return (
     <nav className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
       <div className="nav-shell mx-auto flex max-w-360 items-center justify-between rounded-[20px] px-3 py-2.5 sm:px-4">
-        <Link href="/" className="group flex items-center gap-3" aria-label="Seth Saddih home">
-          <span className="brand-mark grid size-10 place-items-center rounded-xl text-sm font-semibold">SS</span>
+        <Link href="/" className="group order-2 flex items-center gap-3 md:order-none" aria-label="Seth Saddih home">
+          <img src="/seth-profile.png" alt="Seth Saddih" className="size-10 rounded-xl object-cover object-center" />
           <span className="hidden text-sm font-semibold tracking-tight sm:block">Seth Saddih</span>
         </Link>
 
@@ -80,7 +80,7 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
-          className="glass-button menu-toggle grid size-10 place-items-center rounded-xl md:hidden"
+          className="glass-button menu-toggle order-1 grid size-10 place-items-center rounded-xl md:order-none md:hidden"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
@@ -229,7 +229,7 @@ export function ProjectsPage() {
 }
 
 export function ExperiencePage() {
-  const learningTracks = ["Data Analytics", "Python for Data Analysis", "Graphic Design", "Web Development"];
+  const learningTracks = ["Data Analytics", "Graphic Design", "Web Development"];
 
   return (
     <PageFrame active="Experience">
