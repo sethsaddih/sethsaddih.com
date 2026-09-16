@@ -137,8 +137,6 @@
   letter-spacing: -.02em;
 }
 
-.filter-row:has(.filter) { display: none !important; }
-
 @media (max-width: 640px) {
   .projects-grid {
     min-height: 220px;
