@@ -31,8 +31,46 @@
 .contact-note-large strong, .contact-panel-footer strong { color: rgba(255,255,255,.82); font-size: .95rem; }
 .contact-panel-footer { display: grid; gap: .45rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.08); }
 
-@media (max-width: 900px) { .contact-intro-panel, .contact-panel { min-height: 0; } .social-list a { min-height: 74px; } }
-@media (max-width: 640px) { .contact-intro-panel, .contact-panel { border-radius: 22px; } .social-list a { min-height: 68px; padding: .9rem 1rem; } .social-list a svg:first-child { width: 27px; height: 27px; } .social-list a span { font-size: .96rem; } }
+.contact-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.contact-action {
+  width: 100%;
+  min-height: 64px;
+  margin-top: 0 !important;
+  justify-content: center;
+}
+
+.contact-actions .contact-note-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .contact-intro-panel, .contact-panel { min-height: 0; }
+  .social-list a { min-height: 74px; }
+}
+
+@media (max-width: 640px) {
+  .contact-intro-panel, .contact-panel { border-radius: 22px; }
+  .social-list a { min-height: 68px; padding: .9rem 1rem; }
+  .social-list a svg:first-child { width: 27px; height: 27px; }
+  .social-list a span { font-size: .96rem; }
+
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-action {
+    min-height: 58px;
+  }
+}
 
 /* Contact page: use natural content sizing, like the About page. */
 main:has(.contact-intro-panel) > section {
