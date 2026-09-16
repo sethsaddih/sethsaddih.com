@@ -82,3 +82,20 @@ img {
 .footer-shell > div > strong {
   display: none;
 }
+
+/* Center the full name between the mobile menu button and profile image. */
+@media (max-width: 767px) {
+  nav::after {
+    content: "Seth Saddih";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    color: rgba(255,255,255,.88);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    pointer-events: none;
+  }
+}
