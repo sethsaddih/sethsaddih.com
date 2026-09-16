@@ -56,9 +56,11 @@ export function SiteHeader({ active = "Home" }: { active?: string }) {
     <nav className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
       <div className="nav-shell mx-auto flex max-w-360 items-center justify-between rounded-[20px] px-3 py-2.5 sm:px-4">
         <Link href="/" className="group order-2 flex items-center gap-3 md:order-none" aria-label="Seth Saddih home">
-          <img src="/seth-profile.png" alt="Seth Saddih" className="size-10 rounded-xl object-cover object-center" />
+          <img src="/seth-profile.png" alt="Seth Saddih" className="size-13 rounded-xl object-cover object-center md:size-10" />
           <span className="hidden text-sm font-semibold tracking-tight sm:block">Seth Saddih</span>
         </Link>
+
+        <span className="mobile-header-title" aria-hidden="true">Seth Saddih</span>
 
         <div className="hidden items-center gap-7 text-[13px] text-white/65 md:flex">
           {nav.map(([label, href]) => (
