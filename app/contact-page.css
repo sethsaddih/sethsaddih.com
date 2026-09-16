@@ -44,6 +44,21 @@
   min-height: 64px;
   margin-top: 0 !important;
   justify-content: center;
+  font-size: 1.02rem !important;
+  font-weight: 600 !important;
+}
+
+.contact-action > svg:first-child {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  stroke-width: 1.8;
+}
+
+.contact-action > svg:last-child {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
 }
 
 .contact-actions .contact-note-large {
