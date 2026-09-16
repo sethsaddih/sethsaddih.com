@@ -113,3 +113,18 @@ main:has(.contact-intro-panel) .contact-panel-footer {
     padding-block: .5rem;
   }
 }
+
+/* Shared wide-page treatment for desktop. The mobile layout is unchanged. */
+@media (min-width: 768px) {
+  main:has(.contact-intro-panel) > section,
+  main:has(.timeline) > section {
+    max-width: 1600px !important;
+    width: calc(100% - 2rem);
+  }
+
+  main:has(.contact-intro-panel) .contact-panel {
+    justify-self: stretch;
+    width: 100%;
+    min-width: 0;
+  }
+}
